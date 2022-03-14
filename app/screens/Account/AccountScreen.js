@@ -12,7 +12,8 @@ export const Account = () => {
     useEffect(() => {
         const auth = getAuth(firebaseApp);
         onAuthStateChanged(auth, user => {
-            !user ? setLogin(false) : setLogin(false)
+            setLogin(user ? true : false) 
+            console.log('USER', user);
         });
     }, []);
 
