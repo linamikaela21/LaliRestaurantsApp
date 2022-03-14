@@ -1,10 +1,8 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-export const Account = ({
-    
-}) => (
+export const UserLogged = () => (
     <View>
-        <Text>Account</Text>
+        <Text>UserGuest</Text>
     </View>
 );
