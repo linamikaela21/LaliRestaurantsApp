@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
     marginLeft: 40,
   },
   textRegister: {
+    fontSize: 18,
     marginTop: 15,
     marginLeft: 10,
     marginRight: 10,

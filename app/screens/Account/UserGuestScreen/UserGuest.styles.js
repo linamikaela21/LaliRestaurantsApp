@@ -6,19 +6,18 @@ export const styles = StyleSheet.create({
     marginRight: 30,
   },
   image: {
-    height: 480,
+    height: 400,
     width: "100%",
-    marginBottom: 20
   },
   title: {
     fontWeight: "bold",
     fontSize: 25,
-    marginBottom: 10,
+    marginBottom: 15,
     textAlign: "center",
   },
   description: {
     textAlign: "center",
-    marginBottom: 25,
+    marginBottom: 30,
   },
   viewBtn: {
     flex: 1,

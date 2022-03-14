@@ -17,7 +17,7 @@ export const SignUpForm = () => {
     }
 
     return (
-        <KeyboardAwareScrollView extraScrollHeight={80} enableOnAndroid={true} >
+        <KeyboardAwareScrollView extraScrollHeight={60} enableOnAndroid={true} >
             <Input
                 placeholder='E-mail'
                 containerStyle={styles.inputForm}

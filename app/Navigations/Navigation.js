@@ -57,5 +57,5 @@ const screenOptions = (route, color) => {
     default:
       break;
   }
-  return <Icon type='material-community' name={iconName} size={28} color={color} />
+  return <Icon type='material-community' name={iconName} size={32} color={color} />
 }

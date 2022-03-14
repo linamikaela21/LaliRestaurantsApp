@@ -26,7 +26,7 @@ const CreateAccount = () => {
     const navigation = useNavigation();
     return (
         <Text style={styles.textRegister}>
-            Don't have an account ?
+            Don't have an account ? {` `}
             <Text
                 style={styles.btnRegister}
                 onPress={() => navigation.navigate('signUp')}>Sign Up</Text>

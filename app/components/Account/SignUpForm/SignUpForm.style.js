@@ -5,11 +5,10 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 50,
   },
   inputForm: {
     width: "100%",
-    marginTop: 28,
+    marginTop: 10,
     paddingBottom: 5,
   },
   btnContainerRegister: {
@@ -21,6 +20,7 @@ export const styles = StyleSheet.create({
   },
   iconLeft: {
     color: "#c1c1c1",
-    paddingRight: 5
+    paddingRight: 5,
+    fontSize: 35
   }
 });
