@@ -18,7 +18,9 @@ export const styles = StyleSheet.create({
   btnLogin: {
     backgroundColor: "#00a680",
   },
-  iconRight: {
+  iconLeft: {
     color: "#c1c1c1",
-  },
+    paddingRight: 5,
+    fontSize: 35
+  }
 });

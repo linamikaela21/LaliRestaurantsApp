@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { Input, Icon, Button } from 'react-native-elements';
+import { validateEmail } from '../../../utils/validations';
+import { Loading } from '../../Shared/Loading/Loading'
 import { View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { isEmpty, size } from 'lodash'
 import { styles } from './SignUpForm.style';
-import { validateEmail } from '../../../utils/validations';
 
 export const SignUpForm = (props) => {
     const { toastRef } = props
-    const [showPassword, setShowPassword] = useState(false);
+    const navigation = useNavigation();
+    const [showPassword, setShowPassword] = useState(true);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [formData, setFormData] = useState(defaultFormDataValue())
+    const [loading, setLoading] = useState(false)
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -19,13 +23,20 @@ export const SignUpForm = (props) => {
         else if (size(formData.password) < 6) { toastRef.current.show('Password should be at least 6 characters long') }
         else if (formData.password !== formData.confirmPassword) { toastRef.current.show('Passwords should be equals') }
         else {
+            setLoading(true)
             const auth = getAuth();
             createUserWithEmailAndPassword(
                 auth,
                 formData.email,
                 formData.password
-            ).then(res => console.log(res))
-            .catch(() => toastRef.current.show('This E-mail have already exist. Please try again with other one different'))
+            ).then(() => {
+                setLoading(true)
+                navigation.navigate('account')
+            })
+                .catch(() => {
+                    setLoading(true)
+                    toastRef.current.show('This E-mail does not exist. Please try again with other one different')
+                })
         }
     }
 
@@ -37,8 +48,8 @@ export const SignUpForm = (props) => {
         <View >
             <Input
                 placeholder='E-mail'
-                containerStyle={styles.inputForm}
                 onChange={e => onChange(e, 'email')}
+                containerStyle={styles.inputForm}
                 leftIcon={<Icon
                     type='material-community'
                     name='at'
@@ -71,11 +82,13 @@ export const SignUpForm = (props) => {
                     onPress={() => setShowConfirmPassword(!showConfirmPassword)}
                 />}
             />
-            <Button title='Sign Up'
+            <Button
+                title='Sign Up'
+                onPress={(e) => onSubmit(e)}
                 containerStyle={styles.btnContainerRegister}
                 buttonStyle={styles.btnRegister}
-                onPress={(e) => onSubmit(e)}
             />
+            <Loading show={loading} text='Creating account...' />
         </View>
     )
 };
