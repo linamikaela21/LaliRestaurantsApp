@@ -8,12 +8,11 @@ import { Loading } from '../../components/Shared/Loading/Loading';
 export const Account = () => {
 
     const [login, setLogin] = useState(null);
-
+    
     useEffect(() => {
         const auth = getAuth(firebaseApp);
         onAuthStateChanged(auth, user => {
             setLogin(user ? true : false) 
-            console.log('USER', user);
         });
     }, []);
 
