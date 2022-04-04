@@ -6,6 +6,7 @@ import { Button } from 'react-native-elements';
 import { getAuth } from "firebase/auth";
 import { styles } from "./UserLoggedScreen.style";
 import Toast from 'react-native-easy-toast'
+import { AccountOptions } from '../../../components/Account/AccountOptions/AccountOptions';
 
 export const UserLogged = () => {
 
@@ -17,7 +18,7 @@ export const UserLogged = () => {
     useEffect(() => {
         (async () => {
             const auth = getAuth();
-            const user = await auth.currentUser
+            const user = auth.currentUser
             setUserInfo(user)
         })()
     }, []);
@@ -29,8 +30,14 @@ export const UserLogged = () => {
 
     return (
         <View style={styles.viewUserInfo}>
-            {userInfo && < UserInfo userInfo={userInfo} toastRef={toastRef} />}
-            <Text>account options</Text>
+            {userInfo && 
+            < UserInfo 
+            userInfo={userInfo} 
+            toastRef={toastRef} 
+            />}
+            <AccountOptions             
+            userInfo={userInfo} 
+            toastRef={toastRef} />
             <Button
                 title='Log Out'
                 onPress={() => logout()} buttonStyle={styles.btnCloseSession}

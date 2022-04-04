@@ -9,7 +9,6 @@ import { updateProfile } from 'firebase/auth';
 
 
 export const UserInfo = (props) => {
-    console.log('userInfo', props.userInfo);
     const { userInfo: { uid, photoURL, displayName, email }, toastRef } = props
 
     const changeAvatar = async () => {
@@ -26,7 +25,7 @@ export const UserInfo = (props) => {
             if (result.cancelled) {
                 toastRef.current.show('You closed image selection')
             } else {
-                uploadImage(result.uri).then(() => toastRef.current.show('Image Update Successfully'))
+                uploadImage(result.uri).then(() => alert('Image Update Successfully'))
                     .catch(() => toastRef.current.show('Error to update avatar'))
             }
         }
@@ -45,8 +44,8 @@ export const UserInfo = (props) => {
                     }
                     await updateProfile(props.userInfo, update)
                 });
-            }).catch((error) => {
-                console.error('Upload failed', error)
+            }).catch(() => {
+                console.log('Error to update avatar succesfully')
             }
             )
     }

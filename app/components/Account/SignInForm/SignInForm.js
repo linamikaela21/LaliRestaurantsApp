@@ -48,7 +48,7 @@ export const SignInForm = (props) => {
             <Input
                 placeholder='E-mail' co
                 onChange={e => onChange(e, 'email')}
-                ntainerStyle={styles.inputForm}
+                containerStyle={styles.inputForm}
                 leftIcon={<Icon
                     type='material-community'
                     name='at'
