@@ -22,5 +22,10 @@ export const styles = StyleSheet.create({
     color: "#c1c1c1",
     paddingRight: 5,
     fontSize: 35
+  },
+  iconLeft: {
+    color: "#c1c1c1",
+    paddingRight: 5,
+    fontSize: 35
   }
 });

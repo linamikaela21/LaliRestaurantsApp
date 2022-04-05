@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { Avatar } from 'react-native-elements';
-import { styles } from './UserInfo.style'
+import { styles } from './UserInfo.styles'
 import { Camera } from 'expo-camera';
 import { getStorage, ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import * as ImagePicker from 'expo-image-picker'
@@ -9,7 +9,7 @@ import { updateProfile } from 'firebase/auth';
 
 
 export const UserInfo = (props) => {
-    const { userInfo: { uid, photoURL, displayName, email }, toastRef } = props
+    const { userInfo: { uid, photoURL, displayName, email }, toastRef, setReloadUserInfo } = props
 
     const changeAvatar = async () => {
         const cameraPermission = await Camera.requestCameraPermissionsAsync();
@@ -43,6 +43,7 @@ export const UserInfo = (props) => {
                         photoURL: res
                     }
                     await updateProfile(props.userInfo, update)
+                    setReloadUserInfo(true)
                 });
             }).catch(() => {
                 console.log('Error to update avatar succesfully')

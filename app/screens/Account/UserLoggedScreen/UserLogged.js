@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Loading } from '../../../components/Shared/Loading/Loading';
 import { UserInfo } from '../../../components/Account/UserInfo/UserInfo';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { Button } from 'react-native-elements';
 import { getAuth } from "firebase/auth";
 import { styles } from "./UserLoggedScreen.style";
@@ -14,6 +14,7 @@ export const UserLogged = () => {
     const [userInfo, setUserInfo] = useState(null)
     const [loading, setLoading] = useState(false);
     const [loadingText, setLoadingText] = useState('');
+    const [reloadUserInfo, setReloadUserInfo] = useState(false)
 
     useEffect(() => {
         (async () => {
@@ -21,7 +22,8 @@ export const UserLogged = () => {
             const user = auth.currentUser
             setUserInfo(user)
         })()
-    }, []);
+        setReloadUserInfo(false)
+    }, [reloadUserInfo]);
 
     const logout = async () => {
         const auth = getAuth();
@@ -30,14 +32,17 @@ export const UserLogged = () => {
 
     return (
         <View style={styles.viewUserInfo}>
-            {userInfo && 
-            < UserInfo 
-            userInfo={userInfo} 
-            toastRef={toastRef} 
-            />}
-            <AccountOptions             
-            userInfo={userInfo} 
-            toastRef={toastRef} />
+            {userInfo &&
+                < UserInfo
+                    userInfo={userInfo}
+                    toastRef={toastRef}
+                    setReloadUserInfo={setReloadUserInfo}
+                />}
+            <AccountOptions
+                userInfo={userInfo}
+                toastRef={toastRef}
+                setReloadUserInfo={setReloadUserInfo}
+            />
             <Button
                 title='Log Out'
                 onPress={() => logout()} buttonStyle={styles.btnCloseSession}

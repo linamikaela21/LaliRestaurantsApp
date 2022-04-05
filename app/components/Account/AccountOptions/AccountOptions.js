@@ -2,29 +2,46 @@ import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { Icon, ListItem } from 'react-native-elements';
 import { Modal } from '../../Shared/Modal/Modal';
+import { ChangeDisplayName } from '../ChangeDisplayName/ChangeDisplayName';
+import { ChangeEmail } from '../ChangeEmail/ChangeEmail';
+import { ChangePassword } from '../ChangePassword/ChangePassword';
 import { styles } from './AccountOptions.styles';
 
 export const AccountOptions = (props) => {
 
-    const { userInfo, toastRef } = props
+    const { userInfo, toastRef, setReloadUserInfo } = props
     const [showModal, setShowModal] = useState(false);
     const [renderComponent, setRenderComponent] = useState(null);
 
     const selectedComponent = (key) => {
-        console.log(key);
         switch (key) {
             case 'displayName':
-                setRenderComponent(<Text>Change Name and LastName</Text>)
+                setRenderComponent(
+                    <ChangeDisplayName
+                        setShowModal={setShowModal}
+                        userInfo={userInfo}
+                        toastRef={toastRef}
+                        setReloadUserInfo={setReloadUserInfo} />)
                 setShowModal(true)
                 break;
 
             case 'email':
-                setRenderComponent(<Text>Change email</Text>)
+                setRenderComponent(
+                    <ChangeEmail
+                        userInfo={userInfo}
+                        setShowModal={setShowModal}
+                        toastRef={toastRef}
+                        setReloadUserInfo={setReloadUserInfo} />)
                 setShowModal(true)
                 break;
 
             case 'password':
-                setRenderComponent(<Text>Change password</Text>)
+                setRenderComponent(
+                    <ChangePassword
+                        userInfo={userInfo}
+                        setShowModal={setShowModal}
+                        toastRef={toastRef}
+                        setReloadUserInfo={setReloadUserInfo} />)
                 setShowModal(true)
                 break;
 
