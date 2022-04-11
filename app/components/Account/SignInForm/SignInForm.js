@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { styles } from './SignInForm.style';
+import { styles } from './SignInForm.styles';
 import { Loading } from '../../Shared/Loading/Loading';
 import { validateEmail } from '../../../utils/validations';
 import { useNavigation } from '@react-navigation/native';

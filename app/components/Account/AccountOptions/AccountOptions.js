@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
+import {  View } from 'react-native';
 import { Icon, ListItem } from 'react-native-elements';
 import { Modal } from '../../Shared/Modal/Modal';
 import { ChangeDisplayName } from '../ChangeDisplayName/ChangeDisplayName';
@@ -81,8 +81,8 @@ export const AccountOptions = (props) => {
             }
             {renderComponent && (
                 <Modal
-                    isVisible={showModal}
-                    setIsVisible={setShowModal}>
+                    show={showModal}
+                    close={setShowModal}>
                     {renderComponent}
                 </Modal>
             )}

@@ -3,15 +3,13 @@ import { Overlay } from 'react-native-elements';
 import { styles } from './Modal.styles';
 
 export const Modal = (props) => {
-    const { isVisible, setIsVisible, children } = props
-
-    const closeModal = () => setIsVisible(false)
+    const { show, close, children } = props
 
     return (
         <Overlay
-            isVisible={isVisible}
+            isVisible={show}
             overlayStyle={styles.modal}
-            onBackdropPress={closeModal}
+            onBackdropPress={close}
         >
             {children}
         </Overlay>
