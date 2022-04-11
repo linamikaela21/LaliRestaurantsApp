@@ -4,7 +4,7 @@ import { Avatar } from 'react-native-elements';
 import { styles } from './UserInfo.styles'
 import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import * as ImagePicker from 'expo-image-picker'
-import { updateProfile } from 'firebase/auth';
+import { getAuth, updateProfile } from 'firebase/auth';
 
 
 export const UserInfo = (props) => {
@@ -20,7 +20,7 @@ export const UserInfo = (props) => {
             aspect: [4, 3],
         });
 
-        if (!cameraResults.cancelled) uploadImage(result.uri);
+        if (!cameraResults.cancelled) uploadImage(cameraResults.uri);
     }
 
     const uploadImage = async (uri) => {
@@ -33,21 +33,18 @@ export const UserInfo = (props) => {
         uploadBytes(imageRef, blob)
             .then((snapshot) => {
                 updatePhotoUrl(snapshot.metadata.fullPath)
+                setReloadUserInfo(true)
             });
     }
 
     const updatePhotoUrl = async (imagePath) => {
         const storage = getStorage();
         const imageRef = ref(storage, imagePath);
-
         const imageUrl = await getDownloadURL(imageRef);
-
         const auth = getAuth();
         updateProfile(auth.currentUser, { photoURL: imageUrl });
-
         setAvatar(imageUrl);
         setLoading(false);
-        setReloadUserInfo(true)
     };
 
 

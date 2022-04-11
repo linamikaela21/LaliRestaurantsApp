@@ -35,29 +35,6 @@ export const ChangeDisplayName = (props) => {
       }
     },
   });
-  // const onSubmit = () => {
-  //     setError(null)
-  //     if (!newDisplayName) { setError('Name should not be empty') }
-  //     else if (userInfo.displayName === newDisplayName) { setError('New name should be different to the actual') }
-  //     else {
-  //         setIsLoading(true)
-  //         const update = {
-  //             displayName: newDisplayName
-  //         }
-  //         updateProfile(userInfo, update)
-  //             .then(() => {
-  //                 toastRef.current.show('DisplayName update successfully !')
-  //                 setIsLoading(false)
-  //                 setShowModal(false)
-  //                 setReloadUserInfo(true)
-  //             }
-  //             )
-  //             .catch(() => {
-  //                 setIsLoading(true)
-  //                 setError('Error to update DisplayName')
-  //             })
-  //     }
-  // }
 
   return (
     <View style={styles.content}>
