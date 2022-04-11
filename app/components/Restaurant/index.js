@@ -1,3 +1,4 @@
-export * from './AddRestaurantForm/AddRestaurantForm'
-export * from './MapForm/MapForm'
-export * from './ImageForm/ImageForm'
+export * from './AddRestaurantForm'
+export * from './MapForm'
+export * from './ImageForm'
+export * from './ListOfRestaurants'

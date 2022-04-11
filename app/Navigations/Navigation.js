@@ -1,6 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Icon } from 'react-native-elements'
+import { screen } from '../utils/screenName'
 import { RestaurantsStack } from './RestaurantsStack'
 import { FavoritesStack } from './FavoritesStack'
 import { TopRestaurantsStack } from './TopRestaurantsStack'
@@ -20,11 +21,11 @@ export default function Navigation() {
           tabBarIcon: ({ color }) => screenOptions(route, color),
         })}
       >
-        <Tab.Screen name='restaurants-stack' component={RestaurantsStack} options={{ title: 'Restourants', headerShown: false }} />
-        <Tab.Screen name='favorites-stack' component={FavoritesStack} options={{ title: 'Favorites', headerShown: false }} />
-        <Tab.Screen name='top-restaurants-stack' component={TopRestaurantsStack} options={{ title: 'Top 5', headerShown: false }} />
-        <Tab.Screen name='search-stack' component={SearchStack} options={{ title: 'Search', headerShown: false }} />
-        <Tab.Screen name='account-stack' component={AccountStack} options={{ title: 'Account', headerShown: false }} />
+        <Tab.Screen name={screen.restaurant.tab} component={RestaurantsStack} options={{ title: 'Restourants', headerShown: false }} />
+        <Tab.Screen name={screen.favorites.tab} component={FavoritesStack} options={{ title: 'Favorites', headerShown: false }} />
+        <Tab.Screen name={screen.ranking.tab} component={TopRestaurantsStack} options={{ title: 'Top 5', headerShown: false }} />
+        <Tab.Screen name={screen.search.tab} component={SearchStack} options={{ title: 'Search', headerShown: false }} />
+        <Tab.Screen name={screen.account.tab} component={AccountStack} options={{ title: 'Account', headerShown: false }} />
       </Tab.Navigator>
     </NavigationContainer>
   )
@@ -34,23 +35,23 @@ const screenOptions = (route, color) => {
   let iconName
 
   switch (route.name) {
-    case 'restaurants-stack':
+    case screen.restaurant.tab:
       iconName = 'compass-outline'
       break;
 
-    case 'favorites-stack':
+    case screen.favorites.tab:
       iconName = 'heart-outline'
       break;
 
-    case 'top-restaurants-stack':
+    case screen.ranking.tab:
       iconName = 'star-outline'
       break;
 
-    case 'search-stack':
+    case screen.search.tab:
       iconName = 'magnify'
       break;
 
-    case 'account-stack':
+    case screen.account.tab:
       iconName = 'home-outline'
       break;
 

@@ -1,12 +1,13 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { TopRestaurants } from '../screens/TopRestorants/TopRestaurants'
+import { screen } from '../utils/screenName'
+import { TopRestaurantsScreen } from '../screens/TopRestaurantsScreen/TopRestaurantsScreen'
 
 const Stack = createNativeStackNavigator()
 
 export const TopRestaurantsStack = () => {
     return (
         <Stack.Navigator>
-        <Stack.Screen name='top-restaurants' component={TopRestaurants} options={{ title: 'Top 5' }} />
+        <Stack.Screen name={screen.ranking.ranking} component={TopRestaurantsScreen} options={{ title: 'Top 5' }} />
         </Stack.Navigator>
     )
 }

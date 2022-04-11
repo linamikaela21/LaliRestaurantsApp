@@ -1,16 +1,17 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Account } from '../screens/Account/AccountScreen'
-import { SignIn } from '../screens/Account/SingInScreen/SingInScreen'
-import { SignUp } from '../screens/Account/SignUpScreen/SignUpScreen'
+import { screen } from '../utils/screenName'
+import { AccountScreen } from '../screens/Account/AccountScreen'
+import { SingInScreen } from '../screens/Account/SingInScreen'
+import { SignUpScreen } from '../screens/Account/SignUpScreen'
 
 const Stack = createNativeStackNavigator()
 
 export const AccountStack = () => {
     return (
         <Stack.Navigator>
-        <Stack.Screen name='account' component={Account} options={{ title: 'Account' }} />
-        <Stack.Screen name='signIn' component={SignIn} options={{ title: 'Sign In' }} />
-        <Stack.Screen name='signUp' component={SignUp} options={{ title: 'Sign Up' }} />
+            <Stack.Screen name={screen.account.account} component={AccountScreen} options={{ title: 'Account' }} />
+            <Stack.Screen name={screen.account.signIn} component={SingInScreen} options={{ title: 'Sign In' }} />
+            <Stack.Screen name={screen.account.signUp} component={SignUpScreen} options={{ title: 'Sign Up' }} />
         </Stack.Navigator>
     )
 }
