@@ -19,7 +19,7 @@ export const UserGuestScreen = () => {
       <Text style={styles.description}>Search and look yours best Restaurants in a easier, vote your favorites and comment your experience</Text>
       <Button
         title="Look your profile"
-        onPress={navigation.navigate('SignUp')}
+        onPress={() => navigation.navigate(screen.account.signUp)}
         buttonStyle={styles.btnStyle}
       />
     </ScrollView>
