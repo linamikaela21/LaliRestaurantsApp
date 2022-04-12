@@ -7,12 +7,11 @@ import { useNavigation } from '@react-navigation/native';
 import { Input, Button } from 'react-native-elements';
 import { styles } from './SignInForm.styles';
 import { initialValues, validationSchema } from './SignInFormData';
-import { screen } from '../../../utils/screenName';
+import { screen } from '../../../utils';
 
 export const SignInForm = () => {
     const navigation = useNavigation()
     const [showPassword, setShowPassword] = useState(true);
-    console.log('navigation SignInForm', navigation);
     const onShowHidePassword = () => setShowPassword((prevState) => !prevState);
 
     const formik = useFormik({
@@ -27,8 +26,9 @@ export const SignInForm = () => {
                     formData.email,
                     formData.password
                 );
-                navigation.navigate('Account');
-            } catch (error) {
+                navigation.navigate(screen.account.tab, { screen: screen.account.account })
+            }
+            catch (error) {
                 Toast.show({
                     type: "error",
                     position: "bottom",

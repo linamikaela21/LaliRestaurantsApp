@@ -23,7 +23,7 @@ export const RestaurantScreen = (props) => {
 
     return (
         <ScrollView style={styles.content}>
-            <Carousel arrayImages={resto.images} height={250} width={300} />
+            <Carousel arrayImages={resto.images} height={250} width={350} />
         </ScrollView>
     )
 };

@@ -6,9 +6,9 @@ import { screen } from '../../../utils/screenName';
 import { styles } from './UserGuestScreen.styles'
 
 export const UserGuestScreen = () => {
-  const navigation = useNavigation();
-  //const goToSignUp = () => navigation.navigate({ name: screen.account.signUp });
-  //console.log(screen.account.signUp);
+  const navigation = useNavigation()
+  const goToSignUp = () => navigation.navigate(screen.account.tab, { screen: screen.account.signUp })
+
   return (
     <ScrollView centerContent={true} style={styles.content}>
       <Image source={require('../../../images/folkandspoon.jpg')}
@@ -19,7 +19,7 @@ export const UserGuestScreen = () => {
       <Text style={styles.description}>Search and look yours best Restaurants in a easier, vote your favorites and comment your experience</Text>
       <Button
         title="Look your profile"
-        onPress={() => navigation.navigate(screen.account.signUp)}
+        onPress={goToSignUp}
         buttonStyle={styles.btnStyle}
       />
     </ScrollView>

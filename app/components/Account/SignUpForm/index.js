@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import { Input, Icon, Button } from 'react-native-elements';
 import { View } from 'react-native';
 import { useFormik } from "formik";
+import { useNavigation } from '@react-navigation/native';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Toast from "react-native-toast-message";
 import { Loading } from '../../Shared/Loading'
 import { styles } from './SignUpForm.styles';
 import { initialValues, validationSchema } from './SignUpFormData';
-import { screen } from '../../../utils/screenName';
+import { screen } from '../../../utils';
 
-export const SignUpForm = ({ navigation }) => {
+export const SignUpForm = () => {
+    const navigation = useNavigation()
+
     const [showPassword, setShowPassword] = useState(true);
 
     const formik = useFormik({
@@ -24,7 +27,7 @@ export const SignUpForm = ({ navigation }) => {
                     formData.email,
                     formData.password
                 );
-                navigation.navigate('Account');
+                navigation.navigate(screen.account.tab, { screen: screen.account.account })
             } catch (error) {
                 Toast.show({
                     type: "error",

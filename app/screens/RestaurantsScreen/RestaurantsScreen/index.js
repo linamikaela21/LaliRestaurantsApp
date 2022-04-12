@@ -7,7 +7,7 @@ import { collection, query, onSnapshot, orderBy } from 'firebase/firestore';
 import { Loading } from '../../../components/Shared/Loading';
 import { ListOfRestaurants } from '../../../components/Restaurant';
 import { styles } from './RestaurantsScreen.styles';
-import { screen } from '../../../utils/screenName';
+import { screen } from '../../../utils';
 
 export const RestaurantsScreen = (props) => {
     const { navigation } = props
@@ -37,7 +37,7 @@ export const RestaurantsScreen = (props) => {
                 name='plus'
                 color='#00a680'
                 containerStyle={styles.btnContainer}
-                onPress={() => navigation.navigate('AddRestaurant')}
+                onPress={() => navigation.navigate(screen.restaurant.tab, {screen: screen.restaurant.addRestaurant})}
             />)}
         </View>
     )

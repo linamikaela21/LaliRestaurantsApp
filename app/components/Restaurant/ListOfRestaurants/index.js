@@ -2,7 +2,7 @@ import { View, FlatList, TouchableOpacity } from "react-native";
 import { Text, Image } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./ListOfRestaurants.styles";
-import { screen } from "../../../utils/screenName";
+import { screen } from "../../../utils";
 
 export const ListOfRestaurants = (props) => {
     const { restaurants } = props

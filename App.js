@@ -1,10 +1,13 @@
-import { LogBox } from 'react-native';
 import { Navigation } from './app/navigations/Navigation';
+import { NavigationContainer } from '@react-navigation/native'
 
-LogBox.ignoreAllLogs(['Setting a timer', 'AsyncStorage has been extracted'])
 export default function App() {
 
   return (
-    < Navigation />
+    <>
+      <NavigationContainer>
+        < Navigation />
+      </NavigationContainer>
+    </>
   );
 }

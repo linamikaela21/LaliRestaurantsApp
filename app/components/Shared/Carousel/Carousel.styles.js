@@ -3,13 +3,13 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   content: {
     position: "relative",
+    padding: 22
   },
   dotsContainer: {
     position: "absolute",
     bottom: 0,
-    left: 0,
     width: "100%",
-    height: 70,
+    height: 80,
     paddingBottom: 0,
   },
   dot: {

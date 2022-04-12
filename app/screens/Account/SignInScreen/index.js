@@ -4,9 +4,9 @@ import { Divider, View } from 'react-native-elements';
 import Toast from 'react-native-easy-toast'
 import { styles } from "./SignInScreen.styles";
 import { SignInForm } from '../../../components/Account';
-import { screen } from '../../../utils/screenName';
+import { screen } from '../../../utils';
 
-export const SignInScreen = ({navigation}) => {
+export const SignInScreen = ({ navigation }) => {
 
     const toastRef = useRef()
 
@@ -18,12 +18,12 @@ export const SignInScreen = ({navigation}) => {
                 style={styles.logo}
             />
             <View style={styles.viewContainer}>
-                <SignInForm toastRef={toastRef} navigation={navigation} />
+                <SignInForm toastRef={toastRef} />
             </View>
             <Text style={styles.textRegister}>
                 Dont you got an account ? {` `}
                 <Text style={styles.btnRegister}
-                    onPress={() => navigation.navigate('SignUp')}
+                    onPress={() => navigation.navigate(screen.account.tab, { screen: screen.account.signUp })}
                 > Sign Up
                 </Text>
             </Text >

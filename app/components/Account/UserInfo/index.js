@@ -24,7 +24,7 @@ export const UserInfo = (props) => {
     }
 
     const uploadImage = async (uri) => {
-        setLoadingText("Actualizando Avatar");
+        setLoadingText("Uploading Avatar");
         setLoading(true);
         const response = await fetch(uri)
         const blob = await response.blob()
@@ -34,6 +34,7 @@ export const UserInfo = (props) => {
             .then((snapshot) => {
                 updatePhotoUrl(snapshot.metadata.fullPath)
                 setReloadUserInfo(true)
+                setLoading(false);
             });
     }
 
@@ -45,6 +46,7 @@ export const UserInfo = (props) => {
         updateProfile(auth.currentUser, { photoURL: imageUrl });
         setAvatar(imageUrl);
         setLoading(false);
+        setReloadUserInfo(false)
     };
 
 

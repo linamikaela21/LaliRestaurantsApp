@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import Toast from 'react-native-easy-toast'
 import 'react-native-get-random-values'
-import { v4 as uuid } from 'uuid'
+import uuid from 'react-native-uuid';
 import { useFormik } from 'formik'
 import { ScrollView} from 'react-native';
 import { Button } from 'react-native-elements'
@@ -25,7 +25,7 @@ export const AddRestaurantScreen = (props) => {
             try {
                 setIsLoading(true)
                 const newData = formValue
-                newData.id = uuid()
+                newData.id = uuid.v4()
                 newData.createAt = new Date()
                 const myDB = doc(db, 'restaurants', newData.id)
                 await setDoc(myDB, newData)
