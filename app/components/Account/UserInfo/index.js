@@ -3,8 +3,8 @@ import { Text, View } from 'react-native';
 import { Avatar } from 'react-native-elements';
 import { styles } from './UserInfo.styles'
 import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
-import * as ImagePicker from 'expo-image-picker'
 import { getAuth, updateProfile } from 'firebase/auth';
+import * as ImagePicker from 'expo-image-picker'
 
 
 export const UserInfo = (props) => {

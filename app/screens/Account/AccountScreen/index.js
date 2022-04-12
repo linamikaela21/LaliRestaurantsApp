@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { firebaseApp } from '../../../utils/firebase';
+import { firebaseApp } from '../../../utils';
 import { UserLoggedScreen } from '../UserLoggedScreen';
 import { UserGuestScreen } from '../UserGuestScreen';
 import { Loading } from '../../../components/Shared/Loading';

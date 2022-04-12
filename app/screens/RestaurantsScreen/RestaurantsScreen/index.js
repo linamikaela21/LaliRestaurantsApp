@@ -2,12 +2,12 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { Icon } from 'react-native-elements'
-import { db } from '../../../utils/firebase'
+import { db } from '../../../utils'
+import { screen } from '../../../utils';
 import { collection, query, onSnapshot, orderBy } from 'firebase/firestore';
 import { Loading } from '../../../components/Shared/Loading';
 import { ListOfRestaurants } from '../../../components/Restaurant';
 import { styles } from './RestaurantsScreen.styles';
-import { screen } from '../../../utils';
 
 export const RestaurantsScreen = (props) => {
     const { navigation } = props

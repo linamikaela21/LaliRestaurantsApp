@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, ScrollView } from 'react-native';
 import Toast from 'react-native-easy-toast'
 import { useNavigation } from '@react-navigation/native';
 import { styles } from "./SignUpScreen.styles";
@@ -14,7 +13,7 @@ export const SignUpScreen = () => {
     const goToSignIn = () => navigation.navigate(screen.account.tab, { screen: screen.account.signIn } )
 
     return (
-        <KeyboardAwareScrollView extraScrollHeight={60} enableOnAndroid={true} >
+        <ScrollView>
             <Image
                 source={require('../../../images/loginfood.jpg')}
                 resizeMode='contain'
@@ -32,6 +31,6 @@ export const SignUpScreen = () => {
                 </Text>
             </Text >
             <Toast ref={toastRef} position='center' opacity={0.8} />
-        </KeyboardAwareScrollView>
+        </ScrollView>
     );
 }

@@ -23,7 +23,6 @@ export const UserLoggedScreen = () => {
             setUserInfo(user)
         })()
         setReloadUserInfo(false)
-        console.log('userInfo ==>>', userInfo);
     }, [reloadUserInfo]);
 
     const logout = async () => {

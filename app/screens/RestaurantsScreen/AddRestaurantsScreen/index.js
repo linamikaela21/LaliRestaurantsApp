@@ -1,16 +1,15 @@
 import React, { useRef, useState } from 'react';
 import Toast from 'react-native-easy-toast'
-import 'react-native-get-random-values'
 import uuid from 'react-native-uuid';
 import { useFormik } from 'formik'
 import { ScrollView} from 'react-native';
 import { Button } from 'react-native-elements'
 import { doc, setDoc } from 'firebase/firestore'
 import { Loading } from '../../../components/Shared/Loading'
+import { initialValues, validationSchema } from './AddRestaurantsScreenData';
 import { AddRestaurantForm, ImageForm } from '../../../components/Restaurant';
 import { styles } from '../../../components/Restaurant/AddRestaurantForm/AddRestaurantForm.styles';
-import { db } from '../../../utils/firebase';
-import { initialValues, validationSchema } from './AddRestaurantsScreenData';
+import { db } from '../../../utils';
 
 export const AddRestaurantScreen = (props) => {
     const { navigation } = props

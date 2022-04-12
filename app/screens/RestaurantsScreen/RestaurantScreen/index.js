@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { ScrollView } from 'react-native';
 import { Carousel } from '../../../components/Shared/Carousel';
-import { db } from '../../../utils/firebase';
+import { Loading } from '../../../components/Shared/Loading';
+import { db } from '../../../utils';
 import { styles } from './RestaurantScreen.styles'
 
 export const RestaurantScreen = (props) => {
@@ -11,7 +12,6 @@ export const RestaurantScreen = (props) => {
 
     const [resto, setResto] = useState(null)
 
-    console.log(props);
     useEffect(() => {
         setResto(null)
         onSnapshot(doc(db, 'restaurants', route.params.id), doc => {
@@ -19,7 +19,7 @@ export const RestaurantScreen = (props) => {
         })
     }, [route.params.id])
 
-    if (!resto) return null
+    if (!resto) return <Loading show text='Uploading restaurants..' />
 
     return (
         <ScrollView style={styles.content}>

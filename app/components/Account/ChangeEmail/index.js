@@ -6,7 +6,7 @@ import { updateEmail } from 'firebase/auth';
 import { useFormik } from "formik";
 import { initialValues, validationSchema } from "./ChangeEmailData";
 import Toast from "react-native-toast-message";
-import { reAuth } from '../../../utils/api';
+import { reAuth } from '../../../utils';
 
 
 export const ChangeEmail = (props) => {

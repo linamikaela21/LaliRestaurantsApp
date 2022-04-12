@@ -6,7 +6,7 @@ import { updatePassword } from "firebase/auth";
 import Toast from "react-native-toast-message";
 import { styles } from './ChangePassword.styles';
 import { initialValues, validationSchema } from './ChangePasswordData';
-import { reAuth } from '../../../utils/api';
+import { reAuth } from '../../../utils';
 
 export const ChangePassword = (props) => {
 

@@ -1,5 +1,9 @@
+import { LogBox } from "react-native";
 import { Navigation } from './app/navigations/Navigation';
 import { NavigationContainer } from '@react-navigation/native'
+import Toast from "react-native-toast-message";
+
+LogBox.ignoreAllLogs();
 
 export default function App() {
 
@@ -8,6 +12,7 @@ export default function App() {
       <NavigationContainer>
         < Navigation />
       </NavigationContainer>
+      <Toast />
     </>
   );
 }

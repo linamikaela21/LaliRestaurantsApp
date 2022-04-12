@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Text, ScrollView, Alert } from 'react-native';
 import { Avatar, Icon } from 'react-native-elements'
 import { map, filter } from "lodash";
-import 'react-native-get-random-values'
-import { v4 as uuid } from 'uuid'
+import uuid from 'react-native-uuid';
 import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import * as ImagePicker from 'expo-image-picker'
 import { styles } from './ImageForm.styles';
@@ -30,7 +29,7 @@ export const ImageForm = (props) => {
         const response = await fetch(uri)
         const blob = await response.blob()
         const storage = getStorage();
-        const imageRef = ref(storage, `restaurants/${uuid()}`);
+        const imageRef = ref(storage, `restaurants/${uuid.v4()}`);
         uploadBytes(imageRef, blob)
             .then((snapshot) => {
                 updateImageResto(snapshot.metadata.fullPath)
