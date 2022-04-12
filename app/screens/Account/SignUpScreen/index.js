@@ -11,7 +11,7 @@ export const SignUpScreen = () => {
 
     const toastRef = useRef()
     const navigation = useNavigation()
-    const goToSignIn = () => navigation.navigate({ route: { name: screen.account.signIn } })
+    //const goToSignIn = () => navigation.navigate({ route: { name: screen.account.signIn } })
 
     return (
         <KeyboardAwareScrollView extraScrollHeight={60} enableOnAndroid={true} >
@@ -27,7 +27,7 @@ export const SignUpScreen = () => {
                 Have you got an account ? {` `}
                 <Text
                     style={styles.btnRegister}
-                    onPress={() =>navigation.navigate({ name: screen.account.signIn })}
+                    onPress={() => navigation.navigate('SignIn')}
                 > Sign In
                 </Text>
             </Text >

@@ -27,7 +27,7 @@ export const SignInForm = () => {
                     formData.email,
                     formData.password
                 );
-                navigation.navigate({ name: screen.account.account });
+                navigation.navigate('Account');
             } catch (error) {
                 Toast.show({
                     type: "error",

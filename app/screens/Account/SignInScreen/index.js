@@ -23,7 +23,7 @@ export const SignInScreen = ({navigation}) => {
             <Text style={styles.textRegister}>
                 Dont you got an account ? {` `}
                 <Text style={styles.btnRegister}
-                    onPress={() => navigation.navigate({ name: screen.account.signUp })}
+                    onPress={() => navigation.navigate('SignUp')}
                 > Sign Up
                 </Text>
             </Text >

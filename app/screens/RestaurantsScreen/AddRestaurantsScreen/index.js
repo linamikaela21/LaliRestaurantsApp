@@ -23,11 +23,13 @@ export const AddRestaurantScreen = (props) => {
         validationOnChange: false,
         onSubmit: async (formValue) => {
             try {
+                setIsLoading(true)
                 const newData = formValue
                 newData.id = uuid()
                 newData.createAt = new Date()
                 const myDB = doc(db, 'restaurants', newData.id)
                 await setDoc(myDB, newData)
+                setIsLoading(false)
                 navigation.goBack()
             } catch (error) {
                 console.error(error);
@@ -38,10 +40,7 @@ export const AddRestaurantScreen = (props) => {
     return (
         <ScrollView>
             <AddRestaurantForm
-                formik={formik}
-                toastRef={toastRef}
-                setIsLoading={setIsLoading}
-                navigation={navigation} />
+                formik={formik}/>
             <ImageForm
                 formik={formik}
                 toastRef={toastRef} />

@@ -37,7 +37,7 @@ export const RestaurantsScreen = (props) => {
                 name='plus'
                 color='#00a680'
                 containerStyle={styles.btnContainer}
-                onPress={() => navigation.navigate(screen.restaurant.addRestaurant)}
+                onPress={() => navigation.navigate('AddRestaurant')}
             />)}
         </View>
     )
