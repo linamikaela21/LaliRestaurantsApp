@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { useFormik } from "formik";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Toast from "react-native-toast-message";
 import { View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { Input, Button } from 'react-native-elements';
 import { styles } from './SignInForm.styles';
-import { screen } from '../../../utils/screenName'
 import { initialValues, validationSchema } from './SignInFormData';
+import { screen } from '../../../utils/screenName';
 
 export const SignInForm = () => {
-    const navigation = useNavigation();
-
+    const navigation = useNavigation()
     const [showPassword, setShowPassword] = useState(true);
+    console.log('navigation SignInForm', navigation);
+    const onShowHidePassword = () => setShowPassword((prevState) => !prevState);
 
     const formik = useFormik({
         initialValues: initialValues(),
@@ -26,7 +27,7 @@ export const SignInForm = () => {
                     formData.email,
                     formData.password
                 );
-                navigation.navigate(screen.account.account);
+                navigation.navigate({ name: screen.account.account });
             } catch (error) {
                 Toast.show({
                     type: "error",
@@ -37,7 +38,6 @@ export const SignInForm = () => {
         },
     });
 
-    const onShowHidePassword = () => setShowPassword((prevState) => !prevState);
 
     return (
         <View style={styles.formContainer}>
@@ -52,7 +52,6 @@ export const SignInForm = () => {
                 onChangeText={(text) => formik.setFieldValue("email", text)}
                 errorMessage={formik.errors.email}
             />
-
             <Input
                 placeholder='Password'
                 containerStyle={styles.inputForm}
@@ -67,7 +66,6 @@ export const SignInForm = () => {
                 onChangeText={(text) => formik.setFieldValue("password", text)}
                 errorMessage={formik.errors.password}
             />
-
             <Button
                 title='Sign In'
                 containerStyle={styles.btnContainerLogin}

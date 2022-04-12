@@ -2,14 +2,11 @@ import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import { styles } from './ChangeEmail.styles';
-import {
-  updateEmail,
-  EmailAuthProvider,
-  reauthenticateWithCredential
-} from 'firebase/auth';
+import { updateEmail } from 'firebase/auth';
 import { useFormik } from "formik";
 import { initialValues, validationSchema } from "./ChangeEmailData";
 import Toast from "react-native-toast-message";
+import { reAuth } from '../../../utils/api';
 
 
 export const ChangeEmail = (props) => {
@@ -28,10 +25,7 @@ export const ChangeEmail = (props) => {
     onSubmit: async (formData) => {
       setIsLoading(true)
       try {
-        const credentials = EmailAuthProvider.credential(
-          userInfo.email,
-          formData.password
-        );
+        const credentials = reAuth(formData.password)
         if (!credentials) {
           return (
             Toast.show({
@@ -41,7 +35,6 @@ export const ChangeEmail = (props) => {
             })
           )
         }
-        reauthenticateWithCredential(userInfo, credentials);
         await updateEmail(userInfo, formData.email);
         setReloadUserInfo(true)
         setIsLoading(false)
@@ -63,9 +56,9 @@ export const ChangeEmail = (props) => {
         containerStyle={styles.input}
         leftIcon={{
           type: 'material-community',
-          name: 'at' ,
+          name: 'at',
           color: '#c2c2c2',
-      }}
+        }}
         defaultValue={userInfo.email || ''}
         onChangeText={(text) => formik.setFieldValue("email", text)}
         errorMessage={formik.errors.email}
@@ -77,10 +70,10 @@ export const ChangeEmail = (props) => {
         secureTextEntry={showPassword ? false : true}
         leftIcon={{
           type: 'material-community',
-          name: showPassword ? 'eye-off-outline' : 'eye-outline' ,
+          name: showPassword ? 'eye-off-outline' : 'eye-outline',
           color: '#c2c2c2',
           onPress: onShowPassword,
-      }}
+        }}
         onChangeText={(text) => formik.setFieldValue("password", text)}
         errorMessage={formik.errors.password}
       />

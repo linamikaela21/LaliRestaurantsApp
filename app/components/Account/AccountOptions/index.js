@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { map } from "lodash";
 import { View } from 'react-native';
 import { Icon, ListItem } from 'react-native-elements';
-import { Modal } from '../../Shared/Modal/Modal';
+import { Modal } from '../../Shared/Modal';
 import { ChangeDisplayName } from '../ChangeDisplayName';
 import { ChangeEmail } from '../ChangeEmail';
 import { ChangePassword } from '../ChangePassword';

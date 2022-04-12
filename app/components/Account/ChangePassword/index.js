@@ -2,14 +2,11 @@ import React, { useState } from 'react'
 import { View } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import { useFormik } from "formik";
-import {
-    updatePassword,
-    EmailAuthProvider,
-    reauthenticateWithCredential,
-} from "firebase/auth";
+import { updatePassword } from "firebase/auth";
 import Toast from "react-native-toast-message";
 import { styles } from './ChangePassword.styles';
 import { initialValues, validationSchema } from './ChangePasswordData';
+import { reAuth } from '../../../utils/api';
 
 export const ChangePassword = (props) => {
 
@@ -28,12 +25,7 @@ export const ChangePassword = (props) => {
             setIsLoading(true)
 
             try {
-                const credentials = EmailAuthProvider.credential(
-                    userInfo.email,
-                    formData.password
-                );
-                reauthenticateWithCredential(userInfo, credentials);
-
+                reAuth(formData.password)
                 await updatePassword(userInfo, formData.newPassword);
                 setReloadUserInfo(true)
                 setIsLoading(false)

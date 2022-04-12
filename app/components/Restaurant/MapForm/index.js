@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import * as Location from 'expo-location'
 import MapView from 'react-native-maps'
-import { Modal } from '../../Shared/Modal/Modal';
+import { Modal } from '../../Shared/Modal';
 import { styles } from './MapForm.styles';
 import Toast from 'react-native-toast-message';
 import { Button } from 'react-native-elements';

@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     scrollView: {
-        height: '70%',
+        height: '60%',
     },
     viewForm: {
         marginLeft: 10,

@@ -1,5 +1,0 @@
-export * from './SignUpScreen'
-export * from './SingInScreen'
-export * from './UserGuestScreen'
-export * from './UserLoggedScreen'
-export * from './AccountScreen'

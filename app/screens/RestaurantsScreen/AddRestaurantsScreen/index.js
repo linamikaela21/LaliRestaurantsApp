@@ -6,7 +6,7 @@ import { useFormik } from 'formik'
 import { ScrollView} from 'react-native';
 import { Button } from 'react-native-elements'
 import { doc, setDoc } from 'firebase/firestore'
-import { Loading } from '../../../components/Shared/Loading/Loading'
+import { Loading } from '../../../components/Shared/Loading'
 import { AddRestaurantForm, ImageForm } from '../../../components/Restaurant';
 import { styles } from '../../../components/Restaurant/AddRestaurantForm/AddRestaurantForm.styles';
 import { db } from '../../../utils/firebase';

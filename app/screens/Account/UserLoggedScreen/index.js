@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Loading } from '../../../components/Shared/Loading/Loading';
+import { Loading } from '../../../components/Shared/Loading';
 import { UserInfo } from '../../../components/Account/UserInfo';
 import { View } from 'react-native';
 import { Button } from 'react-native-elements';
+import Toast from 'react-native-easy-toast'
 import { getAuth, signOut } from "firebase/auth";
 import { styles } from "./UserLoggedScreen.styles";
-import Toast from 'react-native-easy-toast'
 import { AccountOptions } from '../../../components/Account/AccountOptions';
 
 export const UserLoggedScreen = () => {
@@ -23,6 +23,7 @@ export const UserLoggedScreen = () => {
             setUserInfo(user)
         })()
         setReloadUserInfo(false)
+        console.log('userInfo ==>>', userInfo);
     }, [reloadUserInfo]);
 
     const logout = async () => {
@@ -33,10 +34,10 @@ export const UserLoggedScreen = () => {
     return (
         <View style={styles.viewUserInfo}>
             {userInfo &&
-                < UserInfo
+                <UserInfo
                     userInfo={userInfo}
                     setLoading={setLoading}
-                     setLoadingText={setLoadingText}
+                    setLoadingText={setLoadingText}
                     setReloadUserInfo={setReloadUserInfo}
                 />}
             <AccountOptions
@@ -45,7 +46,7 @@ export const UserLoggedScreen = () => {
             />
             <Button
                 title='Log Out'
-                onPress={() => logout()} buttonStyle={styles.btnCloseSession}
+                onPress={logout} buttonStyle={styles.btnCloseSession}
                 titleStyle={styles.btnCloseSessionText}
             />
             <Toast ref={toastRef} position='center' opacity={0.8} />

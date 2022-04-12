@@ -7,7 +7,7 @@ import { v4 as uuid } from 'uuid'
 import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import * as ImagePicker from 'expo-image-picker'
 import { styles } from './ImageForm.styles';
-import { Loading } from '../../Shared/Loading/Loading';
+import { Loading } from '../../Shared/Loading';
 
 export const ImageForm = (props) => {
     const { formik } = props

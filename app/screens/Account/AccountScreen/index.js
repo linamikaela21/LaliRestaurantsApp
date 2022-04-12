@@ -3,12 +3,10 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { firebaseApp } from '../../../utils/firebase';
 import { UserLoggedScreen } from '../UserLoggedScreen';
 import { UserGuestScreen } from '../UserGuestScreen';
-import { Loading } from '../../../components/Shared/Loading/Loading';
+import { Loading } from '../../../components/Shared/Loading';
 
 export const AccountScreen = () => {
-
     const [login, setLogin] = useState(null);
-
     useEffect(() => {
         const auth = getAuth(firebaseApp);
         onAuthStateChanged(auth, user => {

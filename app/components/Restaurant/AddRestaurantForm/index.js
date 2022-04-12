@@ -6,9 +6,8 @@ import { MapForm } from '../MapForm';
 
 export const AddRestaurantForm = (props) => {
 
-    const { toastRef, formik, isLoading, navigation, } = props
+    const { formik } = props
 
-    const [imagesSelected, setImagesSelected] = useState([])
     const [showMap, setShowMap] = useState(false)
 
     const openCloseMap = () => setShowMap(!showMap)

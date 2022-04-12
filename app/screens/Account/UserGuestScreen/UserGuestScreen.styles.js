@@ -1,32 +1,27 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  viewBody: {
-    marginLeft: 30,
-    marginRight: 30,
+  content: {
+    marginHorizontal: 30,
   },
   image: {
-    height: 400,
+    resizeMode: "contain",
+    height: 300,
     width: "100%",
+    marginBottom: 40,
   },
   title: {
     fontWeight: "bold",
-    fontSize: 25,
-    marginBottom: 15,
+    fontSize: 19,
+    marginBottom: 10,
     textAlign: "center",
   },
   description: {
     textAlign: "center",
-    marginBottom: 30,
-  },
-  viewBtn: {
-    flex: 1,
-    alignItems: "center",
+    marginBottom: 20,
   },
   btnStyle: {
     backgroundColor: "#00a680",
-  },
-  btnContainer: {
-    width: "70%",
+    marginBottom: 20,
   },
 });

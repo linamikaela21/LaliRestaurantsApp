@@ -10,7 +10,7 @@ import { AccountStack } from './AccountStack'
 
 const Tab = createBottomTabNavigator()
 
-export default function Navigation() {
+export const Navigation = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -21,11 +21,26 @@ export default function Navigation() {
           tabBarIcon: ({ color }) => screenOptions(route, color),
         })}
       >
-        <Tab.Screen name={screen.restaurant.tab} component={RestaurantsStack} options={{ title: 'Restourants', headerShown: false }} />
-        <Tab.Screen name={screen.favorites.tab} component={FavoritesStack} options={{ title: 'Favorites', headerShown: false }} />
-        <Tab.Screen name={screen.ranking.tab} component={TopRestaurantsStack} options={{ title: 'Top 5', headerShown: false }} />
-        <Tab.Screen name={screen.search.tab} component={SearchStack} options={{ title: 'Search', headerShown: false }} />
-        <Tab.Screen name={screen.account.tab} component={AccountStack} options={{ title: 'Account', headerShown: false }} />
+        <Tab.Screen
+          name={screen.restaurant.tab}
+          component={RestaurantsStack}
+          options={{ title: 'Restourants', headerShown: false }} />
+        <Tab.Screen
+          name={screen.favorites.tab}
+          component={FavoritesStack}
+          options={{ title: 'Favorites', headerShown: false }} />
+        <Tab.Screen
+          name={screen.ranking.tab}
+          component={TopRestaurantsStack}
+          options={{ title: 'Top 5', headerShown: false }} />
+        <Tab.Screen
+          name={screen.search.tab}
+          component={SearchStack}
+          options={{ title: 'Search', headerShown: false }} />
+        <Tab.Screen
+          name={screen.account.tab}
+          component={AccountStack}
+          options={{ title: 'Account', headerShown: false }} />
       </Tab.Navigator>
     </NavigationContainer>
   )

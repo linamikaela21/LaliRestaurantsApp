@@ -1,8 +1,8 @@
 import { doc, onSnapshot } from 'firebase/firestore';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { View } from 'react-native';
-import { Text } from 'react-native-elements';
+import { ScrollView } from 'react-native';
+import { Carousel } from '../../../components/Shared/Carousel';
 import { db } from '../../../utils/firebase';
 import { styles } from './RestaurantScreen.styles'
 
@@ -11,6 +11,7 @@ export const RestaurantScreen = (props) => {
 
     const [resto, setResto] = useState(null)
 
+    console.log(props);
     useEffect(() => {
         setResto(null)
         onSnapshot(doc(db, 'restaurants', route.params.id), doc => {
@@ -18,9 +19,11 @@ export const RestaurantScreen = (props) => {
         })
     }, [route.params.id])
 
+    if (!resto) return null
+
     return (
-        <View style={styles.content}>
-            <Text>RestaurantScreen</Text>
-        </View>
+        <ScrollView style={styles.content}>
+            <Carousel arrayImages={resto.images} height={250} width={300} />
+        </ScrollView>
     )
 };
