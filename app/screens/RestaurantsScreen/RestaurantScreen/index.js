@@ -2,6 +2,7 @@ import { doc, onSnapshot } from 'firebase/firestore';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { ScrollView } from 'react-native';
+import { Header, Info } from '../../../components/Restaurant';
 import { Carousel } from '../../../components/Shared/Carousel';
 import { Loading } from '../../../components/Shared/Loading';
 import { db } from '../../../utils';
@@ -24,6 +25,8 @@ export const RestaurantScreen = (props) => {
     return (
         <ScrollView style={styles.content}>
             <Carousel arrayImages={resto.images} height={250} width={350} />
+            <Header restaurant={resto} />
+            <Info restaurant={resto} />
         </ScrollView>
     )
 };

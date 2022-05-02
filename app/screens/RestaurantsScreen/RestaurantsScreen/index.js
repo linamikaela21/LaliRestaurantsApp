@@ -6,7 +6,7 @@ import { db } from '../../../utils'
 import { screen } from '../../../utils';
 import { collection, query, onSnapshot, orderBy } from 'firebase/firestore';
 import { Loading } from '../../../components/Shared/Loading';
-import { ListOfRestaurants } from '../../../components/Restaurant';
+import { ListOfRestaurants } from '../../../components/Restaurants';
 import { styles } from './RestaurantsScreen.styles';
 
 export const RestaurantsScreen = (props) => {

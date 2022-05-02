@@ -7,8 +7,8 @@ import { Button } from 'react-native-elements'
 import { doc, setDoc } from 'firebase/firestore'
 import { Loading } from '../../../components/Shared/Loading'
 import { initialValues, validationSchema } from './AddRestaurantsScreenData';
-import { AddRestaurantForm, ImageForm } from '../../../components/Restaurant';
-import { styles } from '../../../components/Restaurant/AddRestaurantForm/AddRestaurantForm.styles';
+import { AddRestaurantForm, ImageForm } from '../../../components/Restaurants';
+import { styles } from '../../../components/Restaurants/AddRestaurantForm/AddRestaurantForm.styles';
 import { db } from '../../../utils';
 
 export const AddRestaurantScreen = (props) => {

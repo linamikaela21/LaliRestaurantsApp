@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {  View, } from 'react-native';
 import { Input } from 'react-native-elements'
 import { styles } from './AddRestaurantForm.styles';
-import { MapForm } from '../MapForm';
+import { MapForm } from '../../Restaurants/MapForm';
 
 export const AddRestaurantForm = (props) => {
 
