@@ -11,8 +11,7 @@ import { AddRestaurantForm, ImageForm } from '../../../components/Restaurants';
 import { styles } from '../../../components/Restaurants/AddRestaurantForm/AddRestaurantForm.styles';
 import { db } from '../../../utils';
 
-export const AddRestaurantScreen = (props) => {
-    const { navigation } = props
+export const AddRestaurantScreen = ({ navigation }) => {
     const toastRef = useRef()
     const [isLoading, setIsLoading] = useState(false)
 
