@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 15,
     justifyContent: "space-between",
   },
-  ratingContent: {
+  rankingContent: {
     height: 160,
     justifyContent: "center",
   },

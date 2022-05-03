@@ -1,15 +1,15 @@
 import React, { useRef, useState } from 'react';
-import Toast from 'react-native-easy-toast'
+import { Toast } from 'react-native-toast-message'
 import uuid from 'react-native-uuid';
 import { useFormik } from 'formik'
-import { ScrollView} from 'react-native';
+import { ScrollView } from 'react-native';
 import { Button } from 'react-native-elements'
 import { doc, setDoc } from 'firebase/firestore'
+import { db } from '../../../utils';
 import { Loading } from '../../../components/Shared/Loading'
 import { initialValues, validationSchema } from './AddRestaurantsScreenData';
 import { AddRestaurantForm, ImageForm } from '../../../components/Restaurants';
 import { styles } from '../../../components/Restaurants/AddRestaurantForm/AddRestaurantForm.styles';
-import { db } from '../../../utils';
 
 export const AddRestaurantScreen = ({ navigation }) => {
     const toastRef = useRef()
@@ -30,7 +30,11 @@ export const AddRestaurantScreen = ({ navigation }) => {
                 setIsLoading(false)
                 navigation.goBack()
             } catch (error) {
-                console.error(error);
+                Toast.show({
+                    type: 'error',
+                    position: 'bottom',
+                    text1: 'Error to add Restaurant'
+                })
             }
         }
     })
@@ -38,7 +42,7 @@ export const AddRestaurantScreen = ({ navigation }) => {
     return (
         <ScrollView>
             <AddRestaurantForm
-                formik={formik}/>
+                formik={formik} />
             <ImageForm
                 formik={formik}
                 toastRef={toastRef} />
