@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { ScrollView } from 'react-native';
 import { Header, Info, ReviewForm, Reviews } from '../../../components/Restaurant';
+import { BtnFavorites } from '../../../components/Restaurant/BtnFavorites';
 import { Carousel } from '../../../components/Shared/Carousel';
 import { Loading } from '../../../components/Shared/Loading';
 import { db } from '../../../utils';
@@ -29,6 +30,7 @@ export const RestaurantScreen = (props) => {
             <Info restaurant={resto} />
             <ReviewForm restoId={resto.id} />
             <Reviews restoId={resto.id} />
+            <BtnFavorites restoId={resto.id} />
         </ScrollView>
     )
 };

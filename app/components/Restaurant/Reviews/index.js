@@ -18,8 +18,7 @@ export const Reviews = ({ restoId }) => {
             orderBy('createAt', 'desc')
         )
         onSnapshot(q, snap => setReviews(snap.docs))
-        console.log(reviews);
-    }, []);
+    }, [reviews]);
 
     if (!reviews) return <Loading show text='Loading..' />
 
