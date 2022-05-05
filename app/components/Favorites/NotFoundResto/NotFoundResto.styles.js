@@ -10,5 +10,6 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginTop: 20,
+    color: '#00a680',
   },
 });

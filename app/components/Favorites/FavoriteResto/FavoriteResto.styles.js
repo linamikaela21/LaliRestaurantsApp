@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     marginVertical: 10,
     marginHorizontal: 15,
   },
-  image: {
+  img: {
     width: "100%",
     height: 150,
   },
