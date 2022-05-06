@@ -4,8 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { styles } from "./ListOfRestaurants.styles";
 import { screen } from "../../../utils";
 
-export const ListOfRestaurants = (props) => {
-    const { restaurants } = props
+export const ListOfRestaurants = ({ restaurants }) => {
     const navigation = useNavigation()
     const goToResto = (restaurant) => navigation.navigate(screen.restaurant.restaurant, { id: restaurant.id });
 
