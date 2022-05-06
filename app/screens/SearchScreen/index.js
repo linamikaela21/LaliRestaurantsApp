@@ -1,10 +1,11 @@
+import React, { useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native'
 import { collection, endAt, getDocs, limit, orderBy, query, startAt } from 'firebase/firestore';
-import React, { useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
-import { Avatar, ListItem, SearchBar } from 'react-native-elements';
+import { Avatar, Icon, ListItem, SearchBar } from 'react-native-elements';
 import { Loading } from '../../components/Shared/Loading';
 import { db, screen } from '../../utils';
-import { size, map, round } from 'lodash'
+import { size, map } from 'lodash'
 
 export const SearchScreen = () => {
     const navigation = useNavigation()
